@@ -1,4 +1,5 @@
 import MarketTerminal from "@/components/MarketTerminal";
+import ConnectWallet from "@/components/ConnectWallet";
 
 export default function HomePage() {
   return (
@@ -32,7 +33,12 @@ export default function HomePage() {
 
       </section>
 
-      {/* MARKET TERMINAL SECTION */}
+      {/* WALLET SECTION */}
+      <section className="px-6 max-w-7xl mx-auto mb-10">
+        <ConnectWallet />
+      </section>
+
+      {/* MARKET TERMINAL */}
       <div className="px-6">
         <MarketTerminal />
       </div>
