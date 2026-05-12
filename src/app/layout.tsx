@@ -1,8 +1,16 @@
 import "./globals.css";
 
+import {
+  AuthProvider,
+} from "@/features/auth/AuthContext";
+
+import {
+  LanguageProvider,
+} from "@/i18n/LanguageContext";
+
 export const metadata = {
   title: "VanderVault Platform",
-  description: "Global fintech infrastructure platform",
+  description: "Institutional fintech infrastructure",
 };
 
 export default function RootLayout({
@@ -12,7 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+
+        <LanguageProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </LanguageProvider>
+
+      </body>
     </html>
   );
 }
