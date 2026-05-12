@@ -14,7 +14,7 @@ export default function PlansSection() {
 
         <p className="text-zinc-500 mt-4 max-w-2xl mx-auto">
           Euro-denominated portfolio structures with institutional-grade allocation models.
-          All performance figures are indicative and market-dependent.
+          All performance figures are indicative and market-based only.
         </p>
       </div>
 
@@ -24,7 +24,7 @@ export default function PlansSection() {
         {/* STARTER */}
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6 flex flex-col">
 
-          <h3 className="text-amber-500 font-bold uppercase text-xs tracking-widest">
+          <h3 className="text-amber-500 text-xs uppercase font-bold tracking-widest">
             Starter Portfolio
           </h3>
 
@@ -33,13 +33,13 @@ export default function PlansSection() {
           </p>
 
           <p className="text-zinc-500 text-sm mt-3">
-            Conservative capital preservation strategy.
+            Conservative capital allocation strategy.
           </p>
 
           <div className="mt-6 text-sm text-zinc-300 space-y-2">
-            <p>• BTC / USDT Funding</p>
+            <p>• Funding: BTC / USDT Wallet</p>
             <p>• Risk Level: Low</p>
-            <p>• Est. Annual Range: 4% – 8%</p>
+            <p>• Annual Range: 4% – 8% (indicative)</p>
             <p>• Cycle: 1–3 months</p>
           </div>
 
@@ -51,7 +51,7 @@ export default function PlansSection() {
         {/* GROWTH */}
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6 flex flex-col">
 
-          <h3 className="text-amber-500 font-bold uppercase text-xs tracking-widest">
+          <h3 className="text-amber-500 text-xs uppercase font-bold tracking-widest">
             Growth Portfolio
           </h3>
 
@@ -60,13 +60,13 @@ export default function PlansSection() {
           </p>
 
           <p className="text-zinc-500 text-sm mt-3">
-            Balanced allocation with diversified exposure.
+            Balanced diversification strategy.
           </p>
 
           <div className="mt-6 text-sm text-zinc-300 space-y-2">
-            <p>• BTC / USDT Funding</p>
+            <p>• Funding: BTC / USDT Wallet</p>
             <p>• Risk Level: Medium</p>
-            <p>• Est. Annual Range: 8% – 15%</p>
+            <p>• Annual Range: 8% – 15% (indicative)</p>
             <p>• Cycle: 3–6 months</p>
           </div>
 
@@ -78,7 +78,7 @@ export default function PlansSection() {
         {/* ADVANCED */}
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6 flex flex-col">
 
-          <h3 className="text-amber-500 font-bold uppercase text-xs tracking-widest">
+          <h3 className="text-amber-500 text-xs uppercase font-bold tracking-widest">
             Advanced Portfolio
           </h3>
 
@@ -87,13 +87,13 @@ export default function PlansSection() {
           </p>
 
           <p className="text-zinc-500 text-sm mt-3">
-            Algorithm-assisted dynamic allocation model.
+            Algorithm-assisted allocation model.
           </p>
 
           <div className="mt-6 text-sm text-zinc-300 space-y-2">
-            <p>• BTC / USDT Funding</p>
+            <p>• Funding: BTC / USDT Wallet</p>
             <p>• Risk Level: Medium–High</p>
-            <p>• Est. Annual Range: 12% – 20%</p>
+            <p>• Annual Range: 12% – 20% (indicative)</p>
             <p>• Cycle: 6–12 months</p>
           </div>
 
@@ -105,7 +105,7 @@ export default function PlansSection() {
         {/* INSTITUTIONAL */}
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6 flex flex-col">
 
-          <h3 className="text-amber-500 font-bold uppercase text-xs tracking-widest">
+          <h3 className="text-amber-500 text-xs uppercase font-bold tracking-widest">
             Institutional Portfolio
           </h3>
 
@@ -118,9 +118,9 @@ export default function PlansSection() {
           </p>
 
           <div className="mt-6 text-sm text-zinc-300 space-y-2">
-            <p>• BTC / USDT Funding</p>
+            <p>• Funding: BTC / USDT Wallet</p>
             <p>• Risk Level: Professional</p>
-            <p>• Est. Annual Range: 15% – 25%</p>
+            <p>• Annual Range: 15% – 25% (indicative)</p>
             <p>• Cycle: 12+ months</p>
           </div>
 
