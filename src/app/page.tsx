@@ -1,39 +1,42 @@
-import Navbar from "@/components/Navbar";
+import MarketTerminal from "@/components/MarketTerminal";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      
-      <Navbar />
 
-      <section className="max-w-7xl mx-auto px-6 py-32">
-        
-        <div className="max-w-3xl">
-          <p className="text-amber-500 uppercase tracking-[0.4em] text-xs font-bold mb-6">
-            Institutional Infrastructure
-          </p>
+      {/* HERO SECTION */}
+      <section className="px-6 py-24 max-w-7xl mx-auto">
 
-          <h1 className="text-6xl md:text-8xl font-black leading-none tracking-tight">
-            Global Digital Asset Terminal
-          </h1>
+        <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-bold">
+          Institutional Global Terminal
+        </p>
 
-          <p className="mt-8 text-zinc-400 text-lg leading-relaxed max-w-2xl">
-            Multi-region fintech infrastructure platform with advanced onboarding,
-            security architecture, analytics systems, and institutional-grade interface design.
-          </p>
+        <h1 className="text-6xl font-black mt-6 leading-tight">
+          VanderVault Holdings
+        </h1>
 
-          <div className="mt-10 flex gap-4">
-            <button className="px-8 py-4 rounded-2xl bg-amber-500 text-black font-bold">
-              Open Dashboard
-            </button>
+        <p className="text-zinc-400 mt-6 max-w-xl">
+          A structured digital asset platform built for global investors with
+          institutional-grade architecture and secure financial systems.
+        </p>
 
-            <button className="px-8 py-4 rounded-2xl border border-white/10 text-white">
-              Explore Platform
-            </button>
-          </div>
+        <div className="mt-10 flex gap-4">
+          <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-semibold">
+            Access Platform
+          </button>
+
+          <button className="px-6 py-3 rounded-xl border border-white/20 text-white">
+            Learn More
+          </button>
         </div>
 
       </section>
+
+      {/* MARKET TERMINAL SECTION */}
+      <div className="px-6">
+        <MarketTerminal />
+      </div>
+
     </main>
   );
-} 
+}
