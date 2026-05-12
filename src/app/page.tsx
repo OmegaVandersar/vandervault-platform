@@ -1,6 +1,7 @@
 import MarketTerminal from "@/components/MarketTerminal";
 import ConnectWallet from "@/components/ConnectWallet";
 import PlansSection from "@/components/PlansSection";
+import KYCSection from "@/components/KYCSection";
 
 export default function HomePage() {
   return (
@@ -19,8 +20,8 @@ export default function HomePage() {
 
         <p className="text-zinc-400 mt-6 max-w-xl leading-relaxed">
           A structured digital asset infrastructure platform designed for
-          global investors, institutional portfolio management, and secure
-          crypto asset operations.
+          institutional portfolio management, crypto asset operations,
+          and global investor onboarding.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
@@ -49,6 +50,9 @@ export default function HomePage() {
 
       {/* INVESTMENT PLANS */}
       <PlansSection />
+
+      {/* KYC VERIFICATION */}
+      <KYCSection />
 
     </main>
   );
