@@ -1,7 +1,7 @@
 export default function RegisterForm() {
   return (
     <div className="w-full max-w-md bg-zinc-950 border border-white/10 rounded-3xl p-8">
-      
+
       <h2 className="text-3xl font-bold text-white mb-2">
         Create Account
       </h2>
@@ -53,6 +53,7 @@ export default function RegisterForm() {
         >
           Create Account
         </button>
+
       </form>
     </div>
   );
