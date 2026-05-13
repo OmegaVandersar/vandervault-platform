@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type EventItem = {
   id: string;
@@ -19,42 +19,65 @@ export default function AdminControlCenter() {
   const [chat, setChat] = useState<ChatItem[]>([]);
   const [soundEnabled, setSoundEnabled] = useState(false);
 
-  const users = ["Satoshi", "CryptoQueen", "MinerX", "BlockNode", "TraderEU"];
+  const users = ["Satoshi", "CryptoQueen", "MinerX", "BlockNode", "TraderEU", "AlphaNode"];
+
+  const activityPool = [
+    { text: "BTC deposit confirmed", weight: 4 },
+    { text: "USDT transfer processed", weight: 4 },
+    { text: "New investor registration", weight: 3 },
+    { text: "KYC verification completed", weight: 2 },
+    { text: "Withdrawal request submitted", weight: 3 },
+  ];
+
+  const chatPool = [
+    "Bitcoin is consolidating nicely 📊",
+    "Market looking bullish 🚀",
+    "Waiting for breakout above resistance",
+    "Long-term accumulation phase continues",
+    "Volatility expected this week",
+  ];
+
+  const pickWeighted = () => {
+    const total = activityPool.reduce((a, b) => a + b.weight, 0);
+    let random = Math.random() * total;
+
+    for (const item of activityPool) {
+      if (random < item.weight) return item.text;
+      random -= item.weight;
+    }
+
+    return activityPool[0].text;
+  };
 
   useEffect(() => {
-    const pool = [
-      "New BTC deposit detected",
-      "KYC verification completed",
-      "Withdrawal request submitted",
-      "USDT transfer received",
-      "New investor registered (EU region)",
-    ];
-
     const interval = setInterval(() => {
+      // EVENT GENERATION (SMART RANDOMIZED)
       const event: EventItem = {
         id: Math.random().toString(),
-        message: pool[Math.floor(Math.random() * pool.length)],
+        message: pickWeighted(),
         time: new Date().toLocaleTimeString(),
       };
 
-      setEvents((prev) => [event, ...prev.slice(0, 9)]);
+      setEvents((prev) => [event, ...prev.slice(0, 12)]);
 
+      // CHAT GENERATION (VARIED MESSAGES)
       const chatMsg: ChatItem = {
         id: Math.random().toString(),
         user: users[Math.floor(Math.random() * users.length)],
-        message: "Bitcoin market discussion update 🚀",
+        message: chatPool[Math.floor(Math.random() * chatPool.length)],
       };
 
-      setChat((prev) => [chatMsg, ...prev.slice(0, 8)]);
+      setChat((prev) => [chatMsg, ...prev.slice(0, 10)]);
 
-      if (soundEnabled) {
+      // SOUND ONLY IF ENABLED
+      if (soundEnabled && Math.random() > 0.6) {
         const audio = new Audio(
           "https://actions.google.com/sounds/v1/alarms/beep_short.ogg"
         );
 
         audio.play().catch(() => {});
       }
-    }, 7000);
+    }, Math.random() * 4000 + 4000); // 4–8 seconds dynamic interval
 
     return () => clearInterval(interval);
   }, [soundEnabled]);
@@ -66,14 +89,14 @@ export default function AdminControlCenter() {
       <div className="mb-10">
         <h2 className="text-4xl font-black">Admin Control Center</h2>
         <p className="text-zinc-500 mt-2">
-          Unified monitoring system (activity + chat + alerts)
+          Real-time simulation engine (advanced market behavior)
         </p>
 
         <button
           onClick={() => setSoundEnabled(!soundEnabled)}
           className="mt-4 px-4 py-2 bg-amber-500 text-black font-bold rounded-xl"
         >
-          {soundEnabled ? "Disable Sound Alerts" : "Enable Sound Alerts"}
+          {soundEnabled ? "Disable Alerts" : "Enable Alerts"}
         </button>
       </div>
 
@@ -102,14 +125,14 @@ export default function AdminControlCenter() {
 
       </div>
 
-      {/* MAIN GRID */}
+      {/* GRID */}
       <div className="grid md:grid-cols-2 gap-6">
 
         {/* LIVE ACTIVITY */}
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
 
           <h3 className="text-xl font-black mb-4">
-            Live Activity Feed
+            Live Activity Engine
           </h3>
 
           <div className="space-y-3 max-h-80 overflow-auto">
@@ -132,7 +155,7 @@ export default function AdminControlCenter() {
         <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
 
           <h3 className="text-xl font-black mb-4">
-            Bitcoin Live Chat
+            Bitcoin Discussion Stream
           </h3>
 
           <div className="space-y-3 max-h-80 overflow-auto">
