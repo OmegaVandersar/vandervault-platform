@@ -6,64 +6,89 @@ import DepositSection from "@/components/DepositSection";
 import InvestorDashboard from "@/components/InvestorDashboard";
 import AdminControlCenter from "@/components/AdminControlCenter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import RoleSwitch from "@/components/RoleSwitch";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
 
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
 
+          {/* LEFT */}
           <div>
 
             <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-bold">
-              Institutional Global Terminal
+              Institutional Crypto Infrastructure
             </p>
 
             <h1 className="text-6xl lg:text-7xl font-black mt-6">
-              VanderVault Holdings
+              Vanguard Investment Network
             </h1>
 
-            <p className="text-zinc-400 mt-6 max-w-2xl text-lg">
-              Secure institutional crypto infrastructure for global investors.
+            <p className="text-zinc-400 mt-6 max-w-2xl text-lg leading-relaxed">
+              A multi-asset digital investment ecosystem built for global investors,
+              portfolio management, and institutional-grade financial operations.
             </p>
+
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-bold">
+                Enter Platform
+              </button>
+
+              <button className="px-6 py-3 rounded-xl border border-white/20">
+                Documentation
+              </button>
+
+            </div>
 
           </div>
 
-          {/* LANGUAGE SWITCHER */}
-          <div className="w-full lg:w-[320px]">
+          {/* RIGHT CONTROLS */}
+          <div className="w-full lg:w-[340px] space-y-4">
+
             <LanguageSwitcher />
+            <RoleSwitch />
+
           </div>
 
         </div>
 
       </section>
 
-      {/* CORE SYSTEMS */}
-      <section className="px-6 max-w-7xl mx-auto mb-20">
+      {/* CORE SYSTEM */}
+      <section className="px-6 max-w-7xl mx-auto space-y-10">
+
         <ConnectWallet />
-      </section>
-
-      <section className="px-6 max-w-7xl mx-auto mb-20">
         <MarketTerminal />
+
       </section>
 
-      {/* INVESTOR DASHBOARD */}
-      <InvestorDashboard />
+      {/* DASHBOARD SYSTEM */}
+      <section className="mt-20">
+        <InvestorDashboard />
+      </section>
 
-      {/* ADMIN CONTROL CENTER (ADDED HERE) */}
-      <AdminControlCenter />
+      {/* ADMIN SYSTEM */}
+      <section className="mt-20">
+        <AdminControlCenter />
+      </section>
 
-      {/* PLANS */}
-      <PlansSection />
+      {/* INVESTMENT SYSTEM */}
+      <section className="mt-20">
+        <PlansSection />
+      </section>
 
-      {/* DEPOSIT */}
-      <DepositSection />
+      {/* FINANCIAL OPERATIONS */}
+      <section className="px-6 max-w-7xl mx-auto mt-20 space-y-10">
 
-      {/* KYC */}
-      <KYCSection />
+        <DepositSection />
+        <KYCSection />
+
+      </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 mt-24">
@@ -72,31 +97,31 @@ export default function HomePage() {
 
           <div>
             <h3 className="text-2xl font-black">
-              VanderVault Holdings
+              Vanguard Investment Network
             </h3>
             <p className="text-zinc-500 mt-4 text-sm">
-              Institutional crypto infrastructure platform.
+              Institutional crypto infrastructure for global digital asset management.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4">
-              Compliance
-            </h4>
+            <h4 className="font-bold mb-4">Compliance</h4>
             <p className="text-zinc-500 text-sm">
-              KYC • AML • Security Systems
+              KYC • AML • Risk Monitoring • Security Systems
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-4">
-              Networks
-            </h4>
+            <h4 className="font-bold mb-4">Supported Assets</h4>
             <p className="text-zinc-500 text-sm">
               BTC • USDT TRC20 • ERC20 • Solana
             </p>
           </div>
 
+        </div>
+
+        <div className="text-center text-zinc-600 text-sm border-t border-white/10 py-6">
+          © 2026 Vanguard Investment Network. All rights reserved.
         </div>
 
       </footer>
