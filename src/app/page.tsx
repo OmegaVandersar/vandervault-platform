@@ -3,6 +3,7 @@ import ConnectWallet from "@/components/ConnectWallet";
 import PlansSection from "@/components/PlansSection";
 import KYCSection from "@/components/KYCSection";
 import DepositSection from "@/components/DepositSection";
+import InvestorDashboard from "@/components/InvestorDashboard";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function HomePage() {
@@ -12,10 +13,11 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
 
-        {/* TOP BAR */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+        {/* TOP AREA */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
           <div>
+
             <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-bold">
               Institutional Global Terminal
             </p>
@@ -29,6 +31,19 @@ export default function HomePage() {
               institutional portfolio management, blockchain funding systems,
               and global investor onboarding.
             </p>
+
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-semibold">
+                Access Platform
+              </button>
+
+              <button className="px-6 py-3 rounded-xl border border-white/20 text-white">
+                Learn More
+              </button>
+
+            </div>
+
           </div>
 
           {/* LANGUAGE SWITCHER */}
@@ -38,22 +53,9 @@ export default function HomePage() {
 
         </div>
 
-        {/* BUTTONS */}
-        <div className="flex flex-wrap gap-4">
-
-          <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-semibold">
-            Access Platform
-          </button>
-
-          <button className="px-6 py-3 rounded-xl border border-white/20 text-white">
-            Learn More
-          </button>
-
-        </div>
-
       </section>
 
-      {/* WALLET CONNECTION */}
+      {/* WALLET CONNECT */}
       <section className="px-6 max-w-7xl mx-auto mb-20">
         <ConnectWallet />
       </section>
@@ -63,13 +65,16 @@ export default function HomePage() {
         <MarketTerminal />
       </section>
 
+      {/* DASHBOARD */}
+      <InvestorDashboard />
+
       {/* INVESTMENT PLANS */}
       <PlansSection />
 
       {/* DEPOSIT SYSTEM */}
       <DepositSection />
 
-      {/* KYC SYSTEM */}
+      {/* KYC VERIFICATION */}
       <KYCSection />
 
       {/* FOOTER */}
@@ -86,7 +91,7 @@ export default function HomePage() {
 
             <p className="text-zinc-500 mt-4 leading-relaxed text-sm">
               Institutional-grade digital asset infrastructure and
-              crypto portfolio management systems for global investors.
+              blockchain investment systems for global investors.
             </p>
 
           </div>
@@ -95,14 +100,14 @@ export default function HomePage() {
           <div>
 
             <h4 className="text-white font-bold mb-4">
-              Compliance
+              Compliance Infrastructure
             </h4>
 
             <div className="space-y-3 text-zinc-500 text-sm">
-              <p>KYC Verification System</p>
-              <p>AML Monitoring Infrastructure</p>
+              <p>KYC Tier Verification</p>
+              <p>AML Monitoring Systems</p>
               <p>Institutional Security Protocols</p>
-              <p>Blockchain Transaction Screening</p>
+              <p>Blockchain Screening Engine</p>
             </div>
 
           </div>
@@ -133,4 +138,4 @@ export default function HomePage() {
 
     </main>
   );
-      }
+}
