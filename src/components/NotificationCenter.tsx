@@ -1,47 +1,50 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PlatformEvent, subscribe, startDemoEvents } from "@/lib/event-engine";
 
 export default function NotificationCenter() {
-  const [notifications, setNotifications] = useState<string[]>([]);
+  const [events, setEvents] = useState<PlatformEvent[]>([]);
 
   useEffect(() => {
-    // simulate incoming real-time event stream (replace with websocket later)
-    const interval = setInterval(() => {
-      const events = [
-        "New deposit received (BTC)",
-        "KYC verification submitted",
-        "Withdrawal request pending",
-        "New investor registered",
-      ];
+    startDemoEvents();
 
-      const event = events[Math.floor(Math.random() * events.length)];
-      setNotifications((prev) => [event, ...prev]);
+    const handler = (event: PlatformEvent) => {
+      setEvents((prev) => [event, ...prev.slice(0, 9)]);
 
-      // sound alert (allowed browser-triggered)
+      // sound alert (browser-safe trigger)
       const audio = new Audio(
         "https://actions.google.com/sounds/v1/alarms/beep_short.ogg"
       );
       audio.play().catch(() => {});
-    }, 20000);
+    };
 
-    return () => clearInterval(interval);
+    subscribe(handler);
   }, []);
 
   return (
     <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
-      <h3 className="text-xl font-black mb-4">Live Notifications</h3>
 
-      <div className="space-y-3 max-h-64 overflow-auto">
-        {notifications.map((n, i) => (
+      <h3 className="text-xl font-black mb-4">
+        Live Activity Feed
+      </h3>
+
+      <div className="space-y-3 max-h-80 overflow-auto">
+
+        {events.map((e) => (
           <div
-            key={i}
-            className="text-sm text-zinc-300 border border-white/10 p-3 rounded-xl"
+            key={e.id}
+            className="border border-white/10 p-4 rounded-xl"
           >
-            {n}
+            <p className="text-white font-semibold">{e.message}</p>
+            <p className="text-xs text-zinc-500 mt-1">
+              {new Date(e.timestamp).toLocaleTimeString()}
+            </p>
           </div>
         ))}
+
       </div>
+
     </div>
   );
 }
