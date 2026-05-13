@@ -1,47 +1,45 @@
 "use client";
 
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useState } from "react";
 
 export default function LanguageSwitcher() {
-  const { language, setLanguage } =
-    useLanguage();
+  const [language, setLanguage] = useState("English");
+
+  const languages = [
+    "English",
+    "Deutsch",
+    "Français",
+    "Español",
+    "العربية",
+    "Русский",
+    "中文",
+  ];
 
   return (
-    <div className="flex gap-2">
+    <div className="bg-zinc-950 border border-white/10 rounded-2xl p-4 flex items-center justify-between">
 
-      <button
-        onClick={() => setLanguage("en")}
-        className={`px-3 py-1 rounded-lg ${
-          language === "en"
-            ? "bg-amber-500 text-black"
-            : "bg-zinc-900 text-white"
-        }`}
-      >
-        EN
-      </button>
+      <div>
+        <p className="text-zinc-500 text-sm">
+          Platform Language
+        </p>
 
-      <button
-        onClick={() => setLanguage("de")}
-        className={`px-3 py-1 rounded-lg ${
-          language === "de"
-            ? "bg-amber-500 text-black"
-            : "bg-zinc-900 text-white"
-        }`}
-      >
-        DE
-      </button>
+        <p className="font-semibold mt-1">
+          {language}
+        </p>
+      </div>
 
-      <button
-        onClick={() => setLanguage("fr")}
-        className={`px-3 py-1 rounded-lg ${
-          language === "fr"
-            ? "bg-amber-500 text-black"
-            : "bg-zinc-900 text-white"
-        }`}
+      <select
+        value={language}
+        onChange={(e) => setLanguage(e.target.value)}
+        className="bg-black border border-white/10 rounded-xl px-4 py-2 text-white outline-none"
       >
-        FR
-      </button>
+        {languages.map((lang) => (
+          <option key={lang} value={lang}>
+            {lang}
+          </option>
+        ))}
+      </select>
 
     </div>
   );
-}
+        }
