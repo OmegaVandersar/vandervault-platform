@@ -8,17 +8,26 @@ type EventItem = {
   time: string;
 };
 
+type ChatItem = {
+  id: string;
+  user: string;
+  message: string;
+};
+
 export default function AdminControlCenter() {
   const [events, setEvents] = useState<EventItem[]>([]);
+  const [chat, setChat] = useState<ChatItem[]>([]);
   const [soundEnabled, setSoundEnabled] = useState(false);
+
+  const users = ["Satoshi", "CryptoQueen", "MinerX", "BlockNode", "TraderEU"];
 
   useEffect(() => {
     const pool = [
-      "New BTC deposit received (€12,450)",
-      "KYC verification submitted",
-      "Withdrawal request (€2,100)",
-      "New investor login detected",
-      "USDT ERC20 deposit confirmed",
+      "New BTC deposit detected",
+      "KYC verification completed",
+      "Withdrawal request submitted",
+      "USDT transfer received",
+      "New investor registered (EU region)",
     ];
 
     const interval = setInterval(() => {
@@ -30,7 +39,14 @@ export default function AdminControlCenter() {
 
       setEvents((prev) => [event, ...prev.slice(0, 9)]);
 
-      // SOUND ONLY IF USER ENABLED IT
+      const chatMsg: ChatItem = {
+        id: Math.random().toString(),
+        user: users[Math.floor(Math.random() * users.length)],
+        message: "Bitcoin market discussion update 🚀",
+      };
+
+      setChat((prev) => [chatMsg, ...prev.slice(0, 8)]);
+
       if (soundEnabled) {
         const audio = new Audio(
           "https://actions.google.com/sounds/v1/alarms/beep_short.ogg"
@@ -38,7 +54,7 @@ export default function AdminControlCenter() {
 
         audio.play().catch(() => {});
       }
-    }, 12000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [soundEnabled]);
@@ -50,15 +66,14 @@ export default function AdminControlCenter() {
       <div className="mb-10">
         <h2 className="text-4xl font-black">Admin Control Center</h2>
         <p className="text-zinc-500 mt-2">
-          Live monitoring system for platform activity
+          Unified monitoring system (activity + chat + alerts)
         </p>
 
-        {/* SOUND TOGGLE (IMPORTANT FIX) */}
         <button
           onClick={() => setSoundEnabled(!soundEnabled)}
-          className="mt-4 px-4 py-2 rounded-xl bg-amber-500 text-black font-bold"
+          className="mt-4 px-4 py-2 bg-amber-500 text-black font-bold rounded-xl"
         >
-          {soundEnabled ? "Disable Alert Sound" : "Enable Alert Sound"}
+          {soundEnabled ? "Disable Sound Alerts" : "Enable Sound Alerts"}
         </button>
       </div>
 
@@ -81,30 +96,60 @@ export default function AdminControlCenter() {
         </div>
 
         <div className="bg-zinc-950 border border-white/10 p-4 rounded-2xl">
-          <p className="text-sm text-zinc-500">System</p>
+          <p className="text-sm text-zinc-500">System Status</p>
           <p className="text-2xl font-black text-green-400">ONLINE</p>
         </div>
 
       </div>
 
-      {/* LIVE FEED */}
-      <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
+      {/* MAIN GRID */}
+      <div className="grid md:grid-cols-2 gap-6">
 
-        <h3 className="text-xl font-black mb-6">
-          Live Activity Feed
-        </h3>
+        {/* LIVE ACTIVITY */}
+        <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
 
-        <div className="space-y-3 max-h-96 overflow-auto">
+          <h3 className="text-xl font-black mb-4">
+            Live Activity Feed
+          </h3>
 
-          {events.map((e) => (
-            <div
-              key={e.id}
-              className="flex justify-between border border-white/10 p-4 rounded-xl"
-            >
-              <p>{e.message}</p>
-              <p className="text-xs text-zinc-500">{e.time}</p>
-            </div>
-          ))}
+          <div className="space-y-3 max-h-80 overflow-auto">
+
+            {events.map((e) => (
+              <div
+                key={e.id}
+                className="flex justify-between border border-white/10 p-3 rounded-xl"
+              >
+                <p>{e.message}</p>
+                <p className="text-xs text-zinc-500">{e.time}</p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+        {/* LIVE CHAT */}
+        <div className="bg-zinc-950 border border-white/10 rounded-3xl p-6">
+
+          <h3 className="text-xl font-black mb-4">
+            Bitcoin Live Chat
+          </h3>
+
+          <div className="space-y-3 max-h-80 overflow-auto">
+
+            {chat.map((c) => (
+              <div key={c.id} className="border border-white/10 p-3 rounded-xl">
+
+                <p className="text-amber-400 text-sm font-bold">
+                  {c.user}
+                </p>
+
+                <p>{c.message}</p>
+
+              </div>
+            ))}
+
+          </div>
 
         </div>
 
@@ -112,4 +157,4 @@ export default function AdminControlCenter() {
 
     </section>
   );
-      }
+}
