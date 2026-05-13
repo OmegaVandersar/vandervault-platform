@@ -4,6 +4,7 @@ import PlansSection from "@/components/PlansSection";
 import KYCSection from "@/components/KYCSection";
 import DepositSection from "@/components/DepositSection";
 import InvestorDashboard from "@/components/InvestorDashboard";
+import AdminControlCenter from "@/components/AdminControlCenter";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function HomePage() {
@@ -13,7 +14,6 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
 
-        {/* TOP AREA */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
           <div>
@@ -22,27 +22,13 @@ export default function HomePage() {
               Institutional Global Terminal
             </p>
 
-            <h1 className="text-6xl lg:text-7xl font-black mt-6 leading-tight">
+            <h1 className="text-6xl lg:text-7xl font-black mt-6">
               VanderVault Holdings
             </h1>
 
-            <p className="text-zinc-400 mt-6 max-w-2xl leading-relaxed text-lg">
-              A secure digital asset infrastructure platform engineered for
-              institutional portfolio management, blockchain funding systems,
-              and global investor onboarding.
+            <p className="text-zinc-400 mt-6 max-w-2xl text-lg">
+              Secure institutional crypto infrastructure for global investors.
             </p>
-
-            <div className="flex flex-wrap gap-4 mt-10">
-
-              <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-semibold">
-                Access Platform
-              </button>
-
-              <button className="px-6 py-3 rounded-xl border border-white/20 text-white">
-                Learn More
-              </button>
-
-            </div>
 
           </div>
 
@@ -55,26 +41,28 @@ export default function HomePage() {
 
       </section>
 
-      {/* WALLET CONNECT */}
+      {/* CORE SYSTEMS */}
       <section className="px-6 max-w-7xl mx-auto mb-20">
         <ConnectWallet />
       </section>
 
-      {/* MARKET TERMINAL */}
       <section className="px-6 max-w-7xl mx-auto mb-20">
         <MarketTerminal />
       </section>
 
-      {/* DASHBOARD */}
+      {/* INVESTOR DASHBOARD */}
       <InvestorDashboard />
 
-      {/* INVESTMENT PLANS */}
+      {/* ADMIN CONTROL CENTER (ADDED HERE) */}
+      <AdminControlCenter />
+
+      {/* PLANS */}
       <PlansSection />
 
-      {/* DEPOSIT SYSTEM */}
+      {/* DEPOSIT */}
       <DepositSection />
 
-      {/* KYC VERIFICATION */}
+      {/* KYC */}
       <KYCSection />
 
       {/* FOOTER */}
@@ -82,56 +70,33 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
 
-          {/* COMPANY */}
           <div>
-
             <h3 className="text-2xl font-black">
               VanderVault Holdings
             </h3>
-
-            <p className="text-zinc-500 mt-4 leading-relaxed text-sm">
-              Institutional-grade digital asset infrastructure and
-              blockchain investment systems for global investors.
+            <p className="text-zinc-500 mt-4 text-sm">
+              Institutional crypto infrastructure platform.
             </p>
-
           </div>
 
-          {/* COMPLIANCE */}
           <div>
-
             <h4 className="text-white font-bold mb-4">
-              Compliance Infrastructure
+              Compliance
             </h4>
-
-            <div className="space-y-3 text-zinc-500 text-sm">
-              <p>KYC Tier Verification</p>
-              <p>AML Monitoring Systems</p>
-              <p>Institutional Security Protocols</p>
-              <p>Blockchain Screening Engine</p>
-            </div>
-
+            <p className="text-zinc-500 text-sm">
+              KYC • AML • Security Systems
+            </p>
           </div>
 
-          {/* NETWORKS */}
           <div>
-
             <h4 className="text-white font-bold mb-4">
-              Supported Networks
+              Networks
             </h4>
-
-            <div className="space-y-3 text-zinc-500 text-sm">
-              <p>Bitcoin (BTC)</p>
-              <p>USDT TRC20</p>
-              <p>USDT ERC20</p>
-              <p>USDT Solana</p>
-            </div>
-
+            <p className="text-zinc-500 text-sm">
+              BTC • USDT TRC20 • ERC20 • Solana
+            </p>
           </div>
 
-        </div>
-
-        <div className="border-t border-white/10 py-6 text-center text-zinc-600 text-sm">
-          © 2026 VanderVault Holdings. All rights reserved.
         </div>
 
       </footer>
