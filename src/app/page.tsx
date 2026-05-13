@@ -3,6 +3,7 @@ import ConnectWallet from "@/components/ConnectWallet";
 import PlansSection from "@/components/PlansSection";
 import KYCSection from "@/components/KYCSection";
 import DepositSection from "@/components/DepositSection";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function HomePage() {
   return (
@@ -11,21 +12,34 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="px-6 py-24 max-w-7xl mx-auto">
 
-        <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-bold">
-          Institutional Global Terminal
-        </p>
+        {/* TOP BAR */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
 
-        <h1 className="text-6xl lg:text-7xl font-black mt-6 leading-tight">
-          VanderVault Holdings
-        </h1>
+          <div>
+            <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-bold">
+              Institutional Global Terminal
+            </p>
 
-        <p className="text-zinc-400 mt-6 max-w-2xl leading-relaxed text-lg">
-          A secure digital asset infrastructure platform engineered for
-          institutional portfolio management, blockchain funding systems,
-          and global investor onboarding.
-        </p>
+            <h1 className="text-6xl lg:text-7xl font-black mt-6 leading-tight">
+              VanderVault Holdings
+            </h1>
 
-        <div className="mt-10 flex flex-wrap gap-4">
+            <p className="text-zinc-400 mt-6 max-w-2xl leading-relaxed text-lg">
+              A secure digital asset infrastructure platform engineered for
+              institutional portfolio management, blockchain funding systems,
+              and global investor onboarding.
+            </p>
+          </div>
+
+          {/* LANGUAGE SWITCHER */}
+          <div className="w-full lg:w-[320px]">
+            <LanguageSwitcher />
+          </div>
+
+        </div>
+
+        {/* BUTTONS */}
+        <div className="flex flex-wrap gap-4">
 
           <button className="px-6 py-3 rounded-xl bg-amber-500 text-black font-semibold">
             Access Platform
@@ -119,4 +133,4 @@ export default function HomePage() {
 
     </main>
   );
-}
+      }
