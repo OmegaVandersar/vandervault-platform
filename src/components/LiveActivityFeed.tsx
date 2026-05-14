@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import useAlertSound from "@/hooks/useAlertSound";
 
 type Activity = {
   id: number;
@@ -10,6 +11,7 @@ type Activity = {
 
 export default function LiveActivityFeed() {
   const [activities, setActivities] = useState<Activity[]>([]);
+  const playSound = useAlertSound();
 
   const templates = [
     "Anna from Canada deposited €3,500",
@@ -33,7 +35,11 @@ export default function LiveActivityFeed() {
       };
 
       setActivities((prev) => [newActivity, ...prev.slice(0, 6)]);
-    }, 4000);
+
+      // 🔔 TRIGGER ALERT SOUND
+      playSound();
+
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
