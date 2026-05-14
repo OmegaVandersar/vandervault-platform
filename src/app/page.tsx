@@ -29,14 +29,14 @@ export default function HomePage() {
           </button>
 
           <button className="border border-white/10 px-8 py-4 rounded-2xl">
-            View Dashboard
+            Investor Dashboard
           </button>
 
         </div>
 
       </section>
 
-      {/* PLANS */}
+      {/* PLANS SECTION */}
       <PlansSection />
 
     </main>
