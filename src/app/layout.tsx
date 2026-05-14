@@ -1,5 +1,7 @@
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
+import Notifications from "@/components/Notifications";
+import { NotificationProvider } from "@/context/NotificationContext";
 
 export const metadata = {
   title: "Omega Finance Dashboard",
@@ -15,18 +17,21 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black text-white">
 
-        {/* GLOBAL APP WRAPPER */}
-        <div className="flex">
+        <NotificationProvider>
 
-          {/* SIDEBAR (GLOBAL) */}
-          <Sidebar />
+          <div className="flex">
 
-          {/* MAIN CONTENT */}
-          <main className="flex-1 md:ml-64 min-h-screen">
-            {children}
-          </main>
+            <Sidebar />
 
-        </div>
+            <main className="flex-1 md:ml-64 min-h-screen">
+              {children}
+            </main>
+
+            <Notifications />
+
+          </div>
+
+        </NotificationProvider>
 
       </body>
     </html>
