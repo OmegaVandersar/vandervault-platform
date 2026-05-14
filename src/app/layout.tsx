@@ -1,13 +1,9 @@
 import "./globals.css";
-
-import { AuthProvider } from "@/features/auth/AuthContext";
-import { LanguageProvider } from "@/i18n/LanguageContext";
-
-import NotificationFeed from "@/components/NotificationFeed";
+import Sidebar from "@/components/Sidebar";
 
 export const metadata = {
-  title: "VanderVault Holdings",
-  description: "Institutional Global Digital Asset Platform",
+  title: "Omega Finance Dashboard",
+  description: "Institutional Investment Platform",
 };
 
 export default function RootLayout({
@@ -19,21 +15,18 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black text-white">
 
-        {/* LANGUAGE SYSTEM */}
-        <LanguageProvider>
+        {/* GLOBAL APP WRAPPER */}
+        <div className="flex">
 
-          {/* AUTH SYSTEM */}
-          <AuthProvider>
+          {/* SIDEBAR (GLOBAL) */}
+          <Sidebar />
 
-            {/* APP CONTENT */}
+          {/* MAIN CONTENT */}
+          <main className="flex-1 md:ml-64 min-h-screen">
             {children}
+          </main>
 
-            {/* GLOBAL LIVE NOTIFICATIONS */}
-            <NotificationFeed />
-
-          </AuthProvider>
-
-        </LanguageProvider>
+        </div>
 
       </body>
     </html>
