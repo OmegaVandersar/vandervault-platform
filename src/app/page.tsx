@@ -1,59 +1,43 @@
-import MarketTerminal from "@/components/MarketTerminal";
-import ConnectWallet from "@/components/ConnectWallet";
 import PlansSection from "@/components/PlansSection";
-import KYCSection from "@/components/KYCSection";
-import DepositSection from "@/components/DepositSection";
-import InvestorDashboard from "@/components/InvestorDashboard";
-import AdminControlCenter from "@/components/AdminControlCenter";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import AuthPanel from "@/components/AuthPanel";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
 
       {/* HERO */}
-      <section className="px-6 py-24 max-w-7xl mx-auto">
+      <section className="px-6 py-24 max-w-7xl mx-auto text-center">
 
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
+        <p className="text-amber-500 uppercase tracking-[0.3em] text-sm font-semibold">
+          Institutional Digital Investment Platform
+        </p>
 
-          <div>
-            <h1 className="text-6xl font-black">
-              Vanguard Investment Network
-            </h1>
+        <h1 className="text-6xl font-black mt-6 leading-tight">
+          Secure Wealth Infrastructure
+          <br />
+          For Global Investors
+        </h1>
 
-            <p className="text-zinc-400 mt-6 max-w-xl">
-              Institutional digital asset platform with portfolio infrastructure.
-            </p>
-          </div>
+        <p className="text-zinc-400 text-lg mt-6 max-w-3xl mx-auto">
+          Advanced portfolio allocation, institutional-grade analytics,
+          and secure crypto funding systems for modern capital growth.
+        </p>
 
-          <div className="space-y-4 w-full lg:w-[350px]">
-            <LanguageSwitcher />
-            <AuthPanel />
-          </div>
+        <div className="flex flex-wrap justify-center gap-4 mt-10">
+
+          <button className="bg-amber-500 text-black px-8 py-4 rounded-2xl font-bold">
+            Start Investing
+          </button>
+
+          <button className="border border-white/10 px-8 py-4 rounded-2xl">
+            View Dashboard
+          </button>
 
         </div>
 
       </section>
 
-      {/* CORE SYSTEMS */}
-      <section className="px-6 max-w-7xl mx-auto space-y-10">
-
-        <ConnectWallet />
-        <MarketTerminal />
-
-      </section>
-
-      {/* DASHBOARD */}
-      <InvestorDashboard />
-
-      {/* ADMIN */}
-      <AdminControlCenter />
-
-      {/* FINANCE */}
+      {/* PLANS */}
       <PlansSection />
-      <DepositSection />
-      <KYCSection />
 
     </main>
   );
